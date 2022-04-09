@@ -1,0 +1,41 @@
+{% extends 'components/layout.html' %}
+
+{% block title %} Sign-In {% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-3"></div>
+    <div class="col-6">
+    <h1 class="text-center">Sign In</h1>
+    <form method="POST">
+        {{ inform.hidden_tag() }}
+        <div class="form-group">
+            <fieldset>
+                {{ inform.username.label }}
+                {{ inform.username(class='form-control', placeholder='Username') }}
+            </fieldset>
+
+            <fieldset>
+                {{ inform.password.label }}
+                {{ inform.password(class='form-control', placeholder='Password') }}
+            </fieldset>
+            <div class="form-check mt-2">
+                {{ inform.remember(class="form-check-input") }}
+                {{ inform.remember.label(class="form-check-label") }}
+            </div>
+            <small class="text-muted ml-2">
+                <a href="#">Forgot Password or Username?</a>
+                <!-- need to take them to somewhere :) -->
+            </small>
+        </div>
+        <div class="form-group mt-3">
+            {{ inform.submit(class='btn btn-outline-success') }}   
+        </div> 
+    </form> 
+    <div class="row justify-content-center mt-5">
+     <a class="btn btn-block btn-warning" href="{{ url_for('auth.signup') }}">Don't have an account?</a>
+    </div>
+    {% include 'partials/message.html' %}
+  </div>
+</div>
+{% endblock %}

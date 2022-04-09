@@ -1,0 +1,40 @@
+{% extends 'components/layout.html' %}
+
+{% block title %} Sign-Up {% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-3"></div>
+    <div class="col-6">
+        <h1 class="text-center mb-3">Register Here</h1>
+        <form method="POST">
+            {{ upform.hidden_tag() }}
+            <div class="form-group">
+                <fieldset>
+                    {{ upform.username.label }}
+                    {{ upform.username(class='form-control', placeholder='Username') }}
+                </fieldset>
+
+                <fieldset>
+                    {{ upform.email.label }}
+                    {{ upform.email(class='form-control', placeholder='Email') }}
+                </fieldset>
+
+                <fieldset>
+                    {{ upform.password.label }}
+                    {{ upform.password(class='form-control', placeholder='Password') }}
+                </fieldset>
+                
+                <fieldset>
+                    {{ upform.confirm_password.label }}
+                    {{ upform.confirm_password(class='form-control', placeholder='Confirm Password') }}
+                </fieldset>
+            </div>
+            <div class="mt-3">
+                {{ upform.submit(class='btn btn-outline-success') }}
+            </div>
+        </form>
+        {% include 'partials/message.html' %}
+    </div>
+</div>  
+{% endblock %}
